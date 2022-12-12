@@ -1,0 +1,34 @@
+site_name: 'Introduction to NGS data'
+nav:
+- 'Course Introduction': index.md
+- 'Instructions': instructions.md
+- 'Course exercises':
+  - 'Alignment of raw data': nb/align.html
+  - 'Variant calling analysis': nb/vcf.html
+  - 'Bulk RNA data analysis': nb/bulk.html
+  - 'Single cell data analysis': nb/scrna.html
+docs_dir: develop
+site_dir: docs
+plugins:
+    - mkdocs-jupyter
+extra_css:
+    - extra.css
+extra_javascript:
+  - javascripts/embed-amd.js
+theme: 
+    name: material
+    #favicon: img/sandbox1.png
+    logo: img/logo_NGS_aarhus.png
+    palette:
+      primary: grey
+      accent: cyan
+markdown_extensions:
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
