@@ -1,2 +1,7 @@
 Webpage/docs
 .DS_Store
+lib
+run
+library*
+.config
+.local
