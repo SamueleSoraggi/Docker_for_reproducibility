@@ -1,0 +1,613 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
+    
+    
+      
+        <title>Docker for reproducibility</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.9f9400aa.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="cyan">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#coding-club-docker-for-reproducibility" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Docker for reproducibility" class="md-header__button md-logo" aria-label="Docker for reproducibility" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docker for reproducibility
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Making containers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Docker for reproducibility" class="md-nav__button md-logo" aria-label="Docker for reproducibility" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Docker for reproducibility
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Making containers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Making containers
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-docker-container" class="md-nav__link">
+    What is a docker container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-a-container-a-virtual-machine" class="md-nav__link">
+    Is a container a virtual machine?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-a-docker-container" class="md-nav__link">
+    Making a Docker container
+  </a>
+  
+    <nav class="md-nav" aria-label="Making a Docker container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pulling-and-running-a-container-from-the-hub" class="md-nav__link">
+    Pulling and running a container from the hub
+  </a>
+  
+    <nav class="md-nav" aria-label="Pulling and running a container from the hub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-and-layers" class="md-nav__link">
+    Image and Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tags-and-base-layers" class="md-nav__link">
+    Tags and Base layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-image" class="md-nav__link">
+    Running the image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-a-folder-when-running-a-container" class="md-nav__link">
+    Mounting a folder when running a container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-commands" class="md-nav__link">
+    Useful commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-a-container-from-a-base-layer" class="md-nav__link">
+    Build a container from a base layer
+  </a>
+  
+    <nav class="md-nav" aria-label="Build a container from a base layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copying-files-into-the-image" class="md-nav__link">
+    Copying files into the image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="other_containers/" class="md-nav__link">
+        Other examples
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-docker-container" class="md-nav__link">
+    What is a docker container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-a-container-a-virtual-machine" class="md-nav__link">
+    Is a container a virtual machine?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-a-docker-container" class="md-nav__link">
+    Making a Docker container
+  </a>
+  
+    <nav class="md-nav" aria-label="Making a Docker container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pulling-and-running-a-container-from-the-hub" class="md-nav__link">
+    Pulling and running a container from the hub
+  </a>
+  
+    <nav class="md-nav" aria-label="Pulling and running a container from the hub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-and-layers" class="md-nav__link">
+    Image and Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tags-and-base-layers" class="md-nav__link">
+    Tags and Base layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-image" class="md-nav__link">
+    Running the image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-a-folder-when-running-a-container" class="md-nav__link">
+    Mounting a folder when running a container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-commands" class="md-nav__link">
+    Useful commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-a-container-from-a-base-layer" class="md-nav__link">
+    Build a container from a base layer
+  </a>
+  
+    <nav class="md-nav" aria-label="Build a container from a base layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copying-files-into-the-image" class="md-nav__link">
+    Copying files into the image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="coding-club-docker-for-reproducibility">Coding club - Docker for reproducibility</h1>
+<p>How to make simple docker containers for making reproducible and accessible code to share.</p>
+<h2 id="what-is-a-docker-container">What is a docker container</h2>
+<p>A Docker container (or just container) runs a linux kernel, on top of which you can install libraries and software to run. Differently from what is done in a package manager, a Docker container virtualizes the OS, that will remain the same across different computers running the container. A Docker is also lightweight and easily shareable, making it useful to share reproducible courses or analysis with others. Docker containers are shared and stored in container images (or just images), which are composed of layers of operations used to build the image (you will see those later). </p>
+<h2 id="is-a-container-a-virtual-machine">Is a container a virtual machine?</h2>
+<p>A Docker virtualizes the OS using a linux kernel. A Virtual machine does the same thing: it virtualize an OS, but additionally this runs on virtualized hardware by means of a so-called hypervisor. In this way, a virtual machine runs on exactly the same hardware independently of which computer is used.</p>
+<p><img alt="" src="https://k21academy.com/wp-content/uploads/2020/05/2020_05_13_12_19_07_PowerPoint_Slide_Show_Azure_AZ104_M01_Compute_ed1_-1024x467.png" /></p>
+<p><a href="https://k21academy.com/docker-kubernetes/docker-vs-virtual-machine/">Read more here</a></p>
+<h2 id="making-a-docker-container">Making a Docker container</h2>
+<p>To build a container image, you need first of all to <a href="https://www.docker.com/products/docker-desktop/">install Docker desktop</a> with the installer for either MacOs or Windows (Linux has a guide to install from the terminal). </p>
+<p>To share your containers, make an account on <a href="https://hub.docker.com/">Docker Hub</a>, where you can upload your files which others can download and use immediately.</p>
+<p>Once you install and open Docker desktop (it takes a little time to open), start a terminal. You can do various things we look at down here.</p>
+<h3 id="pulling-and-running-a-container-from-the-hub">Pulling and running a container from the hub</h3>
+<p>You can pull from Docker hub a container image running Rstudio by pulling it <a href="https://hub.docker.com/r/rocker/rstudio">from its repository</a>:</p>
+<div class="highlight"><pre><span></span><code>$ docker pull rocker/rstudio:4.1.2
+
+4.1.2: Pulling from rocker/rstudio
+eaead16dc43b: Pull complete
+35eac095fa03: Pull complete
+90e64e55332d: Pull complete
+090d6e8058f8: Pull complete
+5bad21774007: Pull complete
+facff364deac: Pull complete
+3f87a6dd047a: Pull complete
+Digest: sha256:0b261e81e0605b6dfbdb24cc083f73e67a28b7f35b2184ef9a6ef049013edd68
+Status: Downloaded newer image for rocker/rstudio:4.1.2
+docker.io/rocker/rstudio:4.1.2
+</code></pre></div>
+<h4 id="image-and-layers">Image and Layers</h4>
+<p>A container is shared through so-called images. When you run an image, you get a container on which software is executed. An image is composed of many layers (the ones for which the output above says <code>Pull complete</code>). Each layer is a set of operations done to build the image (e.g. installations of packages, copy of files).</p>
+<h4 id="tags-and-base-layers">Tags and Base layers</h4>
+<p>We pulled an image from <code>rocker/rstudio</code>. The name <code>rocker</code> is just the username which uploaded the image <code>rstudio</code> on Docker Hub. This image is actually built on top of another image called <code>rocker/r-ver</code>, which contains only <code>R</code> but not an installation of Rstudio, and has the base layers that are reused for the <code>rstudio</code> image. There is also an image called <code>rocker/tidyverse</code>, built on top of <code>rocker/rstudio</code> but containing preinstalled <code>tidyverse</code> packages.</p>
+<p><code>rocker/rstudio</code> has in our case also the tag <code>:4.1.2</code>, meaning we pulled the image with the version <code>4.1.2</code> of <code>R</code>. If you use no tags, then the default is for the latest version (tag <code>latest</code>). Other tags are illustrated in the documentation for a specific image. See the <a href="https://rocker-project.org/images/versioned/rstudio.html">documentation</a> for the image we downloaded.</p>
+<h4 id="running-the-image">Running the image</h4>
+<p>Now you can <code>run</code> the container from the <code>rstudio</code> image by using the following command. It will give you a password in the command line. Use it together with the username <code>rstudio</code> when you login from your browser at the address <a href="localhost:8787">localhost:8787</a>.</p>
+<div class="highlight"><pre><span></span><code>docker run --rm \
+           -it \
+           -p 8787:8787 \
+           --name rstudio \
+           rocker/rstudio:4.1.2
+</code></pre></div>
+<p>The options above mean:</p>
+<ul>
+<li><code>--rm</code> cleanup after you close the docker image</li>
+<li><code>-it</code>  interactive run using command line interface</li>
+<li><code>-p 8787:8787</code> communication ports for access to Rstudio</li>
+<li><code>--name rstudio</code> name for the container you are running</li>
+</ul>
+<h4 id="mounting-a-folder-when-running-a-container">Mounting a folder when running a container</h4>
+<p>If you want to use the container to work on various files in a folder, you can mount such folder when you <code>run</code> the container with the option <code>-v</code>. For example</p>
+<p><div class="highlight"><pre><span></span><code>docker run --rm \
+           -it \
+           -p 8787:8787 \
+           --name rstudio \
+           -v ~/Repositories/Docker_tutorial/Docker_Rstudio/dataRstudio:/home/rstudio/ \
+           rocker/rstudio:4.1.2
+</code></pre></div>
+where the folder before <code>:</code> is the local folder, and the one after <code>:</code> is the folder inside the container (in this case the one used as default in Rstudio). NOte that folders must <strong>always</strong> be written in absolute path!</p>
+<h4 id="useful-commands">Useful commands</h4>
+<p>Use <code>docker stats</code> to see memory and cpu usage and other informations about your containers. You will also be able to see the memory limit you have available (you can change that into preferences in Docker Desktop).</p>
+<p>With <code>docker images</code> and <code>docker ps</code> to find out how many images and containers you have in your computer. Remove them using either <code>docker rmi</code> or <code>docker rm</code>. You can do those operations also interactively in Docker Desktop. You can stop a container with <code>docker stop</code> and restart it with <code>docker restart</code>.</p>
+<p>Write <code>docker --help</code> to see all commands in Docker.</p>
+<p><a href="https://dockerlabs.collabnix.com/docker/cheatsheet/">Docker cheatsheet 1</a>
+<a href="https://docs.docker.com/get-started/docker_cheatsheet.pdf">Docker cheatsheet 2</a></p>
+<h3 id="build-a-container-from-a-base-layer">Build a container from a base layer</h3>
+<p>We would like to have a container in which we have our own package and folders. Starting from some base layers, like <code>rocker/Rstudio</code>, we can create a personalized image with packages and files we need.</p>
+<p>Create a folder, and in that a file called <code>Dockerfile</code>. You need no more to start, just write inside <code>Dockerfile</code>. All accessory files you need for your container We can create some layers to install packages: we need to write commands that we would normally run in the bash command line, all introduced by the Docker instruction <code>RUN</code>.</p>
+<div class="highlight"><pre><span></span><code>FROM rocker/rstudio:4.1.2
+
+USER 0
+
+RUN R -q -e &#39;install.packages(&quot;curl&quot;)&#39;  &amp;&amp; \
+    R -q -e &#39;install.packages(&quot;dplyr&quot;)&#39;
+</code></pre></div>
+<p>The command <code>FROM</code> sets a base image which layers are included in your own final image. The following Docker commands create other layers in your image.</p>
+<p><code>USER</code> sets which user runs the following commands: <code>0</code> is the default user (here also called <code>rstudio</code>). This is a non-root user. It is good practice to use non-root users running a container, because running as root might give to hackers access to your local computer. Avoid thus the command <code>USER root</code>.</p>
+<p><code>RUN</code> executes bash commands, here installing two packages in <code>R</code>. Note that we have only one <code>RUN</code>. Since each <code>RUN</code> creates a layer, which can take up quite some memory and resources, we want to reduce the number of layers as much as possible. In general, two layers take more resources to build and store them than a single layer.</p>
+<p>You do not need any command to open <code>Rstudio</code>: this is already written in the base image. Now set the working directory of your terminal where you have your docker file, and build the container image:</p>
+<div class="highlight"><pre><span></span><code>docker build -t rstudiotest:1.0 .
+</code></pre></div>
+<p>The option <code>-t</code> is the name of your image. Here we put the tag <code>1.0</code>  to save a specific tag with version number. If you want your image to be uploaded on Docker Hub, then the name must be in the format <code>yourusername/rstudiotest:1.0</code>. Note <code>.</code>, which says the docker file is in the current directory. When you are done, run the container:</p>
+<div class="highlight"><pre><span></span><code>docker run --rm -it -p 8787:8787 --name rstudio rstudiotest:1.0
+</code></pre></div>
+<p>You should be able to load the library <code>dplyr</code> we just installed.</p>
+<h4 id="copying-files-into-the-image">Copying files into the image</h4>
+<p>Copying files into your image is pretty easy. Here we want to copy a folder into the container folder <code>/home/rstudio</code>:</p>
+<div class="highlight"><pre><span></span><code>FROM rocker/rstudio:4.1.2
+
+USER 0
+
+RUN R -q -e &#39;install.packages(&quot;curl&quot;)&#39;  &amp;&amp; \
+    R -q -e &#39;install.packages(&quot;dplyr&quot;)&#39;
+
+COPY --chown=rstudio:rstudio ./dataRstudio /home/rstudio/
+
+RUN curl https://raw.githubusercontent.com/tidyverse/dplyr/main/vignettes/colwise.Rmd &gt; /home/rstudio/colwise.Rmd
+
+WORKDIR /home/rstudio
+</code></pre></div>
+<p>In this case, we use <code>COPY</code> to create a layer in which we move a folder into <code>/home/rstudio</code>. The path of the local folder must be starting into the same folder as the <code>Dockerfile</code>. There is at the moment no other way of doing that. Also, <code>--chown=rstudio:rstudio</code> tells you that the user <code>rstudio</code> can access and modify the folder content.</p>
+<p>Below, we get some data in the same folder by downloading it with <code>curl</code>, thus creating another layer.</p>
+<p>Finally, <code>WORKDIR</code> sets the current directory.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+      
+        
+        <a href="other_containers/" class="md-footer__link md-footer__link--next" aria-label="Next: Other examples" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Other examples
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+        <script src="javascripts/embed-amd.js"></script>
+      
+    
+  </body>
+</html>
