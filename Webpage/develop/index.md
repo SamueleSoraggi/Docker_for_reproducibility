@@ -4,15 +4,19 @@ How to make simple docker containers for making reproducible and accessible code
 
 ## What is a docker container
 
-A Docker container (or just Docker) runs a linux kernel, on top of which you can install libraries and software to run. Differently from what is done in a package manager, a Docker container virtualizes the OS, that will remain the same across different computers running the container. A Docker is also lightweight and easily shareable, making it useful to share reproducible courses or analysis with others.
+A Docker container (or just container) runs a linux kernel, on top of which you can install libraries and software to run. Differently from what is done in a package manager, a Docker container virtualizes the OS, that will remain the same across different computers running the container. A Docker is also lightweight and easily shareable, making it useful to share reproducible courses or analysis with others. Docker containers are shared and stored in container images (or just images), which are composed of layers of operations used to build the image (you will see those later). 
 
 ## Is a container a virtual machine?
 
 A Docker virtualizes the OS using a linux kernel. A Virtual machine does the same thing: it virtualize an OS, but additionally this runs on virtualized hardware by means of a so-called hypervisor. In this way, a virtual machine runs on exactly the same hardware independently of which computer is used.
 
+![](https://k21academy.com/wp-content/uploads/2020/05/2020_05_13_12_19_07_PowerPoint_Slide_Show_Azure_AZ104_M01_Compute_ed1_-1024x467.png)
+
+[Read more here](https://k21academy.com/docker-kubernetes/docker-vs-virtual-machine/)
+
 ## Making a Docker container
 
-To build a container, you need first of all to [install Docker desktop](https://www.docker.com/products/docker-desktop/) with the installer for either MacOs or Windows (Linux has a guide to install from the terminal). 
+To build a container image, you need first of all to [install Docker desktop](https://www.docker.com/products/docker-desktop/) with the installer for either MacOs or Windows (Linux has a guide to install from the terminal). 
 
 To share your containers, make an account on [Docker Hub](https://hub.docker.com/), where you can upload your files which others can download and use immediately.
 
@@ -88,6 +92,9 @@ Use `docker stats` to see memory and cpu usage and other informations about your
 With `docker images` and `docker ps` to find out how many images and containers you have in your computer. Remove them using either `docker rmi` or `docker rm`. You can do those operations also interactively in Docker Desktop. You can stop a container with `docker stop` and restart it with `docker restart`.
 
 Write `docker --help` to see all commands in Docker.
+
+[Docker cheatsheet 1](https://dockerlabs.collabnix.com/docker/cheatsheet/)
+[Docker cheatsheet 2](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
 
 ### Build a container from a base layer
 

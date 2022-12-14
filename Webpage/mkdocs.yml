@@ -1,12 +1,7 @@
-site_name: 'Introduction to NGS data'
+site_name: 'Docker for reproducibility'
 nav:
-- 'Course Introduction': index.md
-- 'Instructions': instructions.md
-- 'Course exercises':
-  - 'Alignment of raw data': nb/align.html
-  - 'Variant calling analysis': nb/vcf.html
-  - 'Bulk RNA data analysis': nb/bulk.html
-  - 'Single cell data analysis': nb/scrna.html
+- 'Making containers': index.md
+- 'Other examples': other_containers.md
 docs_dir: develop
 site_dir: docs
 plugins:
@@ -18,7 +13,7 @@ extra_javascript:
 theme: 
     name: material
     #favicon: img/sandbox1.png
-    logo: img/logo_NGS_aarhus.png
+    #logo: img/logo_NGS_aarhus.png
     palette:
       primary: grey
       accent: cyan

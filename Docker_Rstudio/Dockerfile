@@ -7,6 +7,6 @@ RUN R -q -e 'install.packages("curl")'  && \
 
 COPY --chown=rstudio:rstudio ./dataRstudio /home/rstudio/
 
-RUN wget https://raw.githubusercontent.com/tidyverse/dplyr/main/vignettes/colwise.Rmd -o /home/rstudio/colwise.Rmd
+RUN wget https://raw.githubusercontent.com/tidyverse/dplyr/main/vignettes/colwise.Rmd -O /home/rstudio/colwise.Rmd
 
 WORKDIR /home/rstudio

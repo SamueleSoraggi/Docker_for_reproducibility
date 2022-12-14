@@ -1,0 +1,12 @@
+channels:
+  - conda-forge
+  - plotly
+  - defaults
+  - bioconda
+  - anaconda
+  - grst
+dependencies:
+  - r-base
+  - r-dplyr
+  - r-ggplot2
+  - r-irkernel
